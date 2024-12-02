@@ -1,0 +1,1823 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opengisch.github.io/QgisModelBaker/de/background_info/basket_handling/">
+      
+      
+        <link rel="prev" href="../repositories/">
+      
+      
+        <link rel="next" href="../oid_tid_generator/">
+      
+      
+      <link rel="icon" href="../../../assets/modelbaker_icon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Dataset und Basket Handling - QGIS Model Baker Dokumentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#was-sind-datasets-und-behalter-baskets" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../../" title="QGIS Model Baker Dokumentation" class="md-header__button md-logo" aria-label="QGIS Model Baker Dokumentation" data-md-component="logo">
+      
+  <img src="../../../assets/modelbaker_icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS Model Baker Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dataset und Basket Handling
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sprache wechseln">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../background_info/basket_handling/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opengisch/QgisModelBaker" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opengisch/QgisModelBaker
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user_guide/get_started/" class="md-tabs__link">
+          
+  
+  Benutzerhandbuch
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../repositories/" class="md-tabs__link">
+          
+  
+  Tipps & Tricks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about/development/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="QGIS Model Baker Dokumentation" class="md-nav__button md-logo" aria-label="QGIS Model Baker Dokumentation" data-md-component="logo">
+      
+  <img src="../../../assets/modelbaker_icon.svg" alt="logo">
+
+    </a>
+    QGIS Model Baker Dokumentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opengisch/QgisModelBaker" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opengisch/QgisModelBaker
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Benutzerhandbuch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Benutzerhandbuch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loslegen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/import_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modell und Daten Import Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/export_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daten Export Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daten Validierung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/topping_exporter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topping Exporter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user_guide/plugin_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugin Konfiguration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tipps & Tricks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tipps & Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repositories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dataset und Basket Handling
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dataset und Basket Handling
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-sind-datasets-und-behalter-baskets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was sind Datasets und Behälter (Baskets)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importieren-von-daten-eines-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importieren von Daten eines Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importieren von Daten eines Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel Use Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interlis-modell" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERLIS Modell
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-von-ul-qoma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daten von Ul Qoma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-update-anstelle-eines-daten-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daten Update anstelle eines Daten Imports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-of-baskets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creation of Baskets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-in-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure in the Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure in the Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-and-data-of-ul-qoma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset and Data of "Ul Qoma"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets-and-data-of-ul-qoma-and-beszel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datasets and Data of "Ul Qoma" and "Besźel"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Selector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-case-of-domain-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special case of domain tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basket-oid-or-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASKET OID or not
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BASKET OID or not">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-basket-oid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using BASKET OID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-using-basket-oid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not using BASKET OID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basket-data-in-extended-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basket data in extended topics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basket data in extended topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reason" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reason
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oid_tid_generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OID Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UsabILIty Toppings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            UsabILIty Toppings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usabilityhub/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Übersicht
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usabilityhub/modelbaker_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Baker Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usabilityhub/technical_concept/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technisches Konzept
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extended_models_optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimierte Projekte für erweiterte Modelle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalogues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kataloge und ihre Spezialfälle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta_attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metaattribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade_3_to_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration von ili2db 3 zu 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Enwicklung
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-sind-datasets-und-behalter-baskets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was sind Datasets und Behälter (Baskets)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importieren-von-daten-eines-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importieren von Daten eines Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importieren von Daten eines Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel Use Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interlis-modell" class="md-nav__link">
+    <span class="md-ellipsis">
+      INTERLIS Modell
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-von-ul-qoma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daten von Ul Qoma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daten-update-anstelle-eines-daten-imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daten Update anstelle eines Daten Imports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-of-baskets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creation of Baskets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-in-the-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure in the Database
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure in the Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-and-data-of-ul-qoma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset and Data of "Ul Qoma"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets-and-data-of-ul-qoma-and-beszel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datasets and Data of "Ul Qoma" and "Besźel"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Datasets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Selector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-case-of-domain-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special case of domain tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basket-oid-or-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASKET OID or not
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BASKET OID or not">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-basket-oid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using BASKET OID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-using-basket-oid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not using BASKET OID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basket-data-in-extended-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basket data in extended topics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basket data in extended topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reason" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reason
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Dataset und Basket Handling</h1>
+
+<h2 id="was-sind-datasets-und-behalter-baskets">Was sind Datasets und Behälter (Baskets)</h2>
+<p>Ein Dataset enthält Daten eines bestimmten räumlichen oder thematischen Bereichs, die die Modellstruktur nicht beeinflussen. Die Daten eines Datasets können somit unabhängig von den anderen Daten verwaltet, validiert und exportiert werden. Behälter (Baskets) sind eine kleinere Variante. Während die Datasets in der Regel das gesamte Modell (oder sogar mehrere) umfassen, sind die Behälter normalerweise Teil eines Themas. Oft sind sie sogar die Schnittmenge von Thema und Datensatz.</p>
+<p>Datasets und Behälter ermöglichen dir, deine Daten thematisch zu trennen ohne das INTERLIS-Modell zu beeinflussen. Sie betreffen nur die Daten. Du kannst die Datasets separat importieren, exportieren und validieren, indem du die Filtermethoden von ili2db und Model Baker verwendest.</p>
+<h2 id="importieren-von-daten-eines-datasets">Importieren von Daten eines Datasets</h2>
+<h3 id="beispiel-use-case">Beispiel Use Case</h3>
+<p>Nehmen wir an, wir haben zwei verschmolzene Zwillingsstädte "Beźel" und "Ul Qoma". Wir wollen sie in dasselbe physische Datenmodell importieren, aber immer getrennt behandeln.</p>
+<h3 id="interlis-modell">INTERLIS Modell</h3>
+<p>Hier haben wir ein einfaches Modell, das eine Stadt mit Bauwerken (Gebäuden und Strassen) und Naturflächen (Parks) darstellt.</p>
+<pre><code>INTERLIS 2.3;
+
+MODEL City_V1 (en)
+AT &quot;https://modelbaker.ch&quot;
+VERSION &quot;2020-06-22&quot; =
+  IMPORTS GeometryCHLV95_V1;
+
+  DOMAIN
+    Line = POLYLINE WITH (STRAIGHTS) VERTEX GeometryCHLV95_V1.Coord2;
+    Surface = SURFACE WITH (STRAIGHTS) VERTEX GeometryCHLV95_V1.Coord2 WITHOUT OVERLAPS &gt; 0.005;
+
+  STRUCTURE Address =
+    Street: TEXT;
+    Number: TEXT;
+  END Address;
+
+  TOPIC Constructions =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+
+    CLASS Buildings  =
+      Address : Address;
+      Description : TEXT*99;
+      Geometry : Surface;
+    END Buildings;
+
+    CLASS Street  =
+      Name : MANDATORY TEXT*99;
+      Geometry : Line;
+    END Street;
+
+  END Constructions;
+
+  TOPIC Nature =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+
+    CLASS Parks  =
+      Name : MANDATORY TEXT*99;
+      Address : Address;
+      Geometry: Surface;
+    END Parks;
+
+  END Nature;
+
+END City_V1.
+</code></pre>
+<p>Das Modell definiert <code>BASKET OID</code>, was bedeutet, dass es stabile Behälter-IDs benötigt und hier im Format einer UUID. Dasselbe gilt für die <code>OID</code>, für die es stabile UUIDs für jedes Objekt (<code>t_ili_tid</code>) benötigt. Diese Spalte wird standardmässig in Model Baker erstellt, auch wenn das Modell sie nicht benötigt.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wir benötigen zum Erstellen des physischen Modells den ili2db-Parameter <code>--createBasketCol</code>. Diesen können wir durch die Einstellung mit <em>Create Basket Column</em> im [Model Baker Wizard] aktivieren(../../user_guide/import_workflow/#ili2db-settings). Ili2db erstellt eine neue Spalte <code>t_basket</code> in Klassentabellen, die auf Einträge in der zusätzlichen Tabelle <code>t_ili2db_baskets</code> verweist. Die Spalte <code>t_basket</code> muss mit dem Behälter gefüllt werden, zu dem ein Objekt gehört. Aber keine Sorge, das ist supereinfach mit dem <a href="#dataset-selector">Dataset Selektor</a>.</p>
+</div>
+<h3 id="daten-von-ul-qoma">Daten von Ul Qoma</h3>
+<p>Und hier sind die Daten der einen Stadt (Ul Qoma):</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2pg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;City_V1&quot; VERSION=&quot;2020-06-22&quot; URI=&quot;https://modelbaker.ch&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;City_V1.Constructions BID=&quot;7dc3c035-b281-412f-9ba3-c69481054974&quot;&gt;
+  &lt;City_V1.Constructions.Buildings TID=&quot;c7c3e013-b5bb-474d-b7d8-1f8de718e160&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Rue des Fleures&lt;/Street&gt;&lt;Number&gt;1&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison Une&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.284&lt;/C1&gt;&lt;C2&gt;1262445.346&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.726&lt;/C1&gt;&lt;C2&gt;1262460.945&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+  &lt;City_V1.Constructions.Buildings TID=&quot;3d6ceabe-7674-4436-8316-ef3b72ba1327&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Rue des Fleures&lt;/Street&gt;&lt;Number&gt;2&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison2&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.726&lt;/C1&gt;&lt;C2&gt;1262460.945&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698911.469&lt;/C1&gt;&lt;C2&gt;1262479.960&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698906.189&lt;/C1&gt;&lt;C2&gt;1262485.007&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+  &lt;City_V1.Constructions.Buildings TID=&quot;d93069ea-ca81-4891-8055-e5791d1be167&quot;&gt;&lt;Description&gt;Maison trois&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698923.489&lt;/C1&gt;&lt;C2&gt;1262491.762&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698928.297&lt;/C1&gt;&lt;C2&gt;1262492.854&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698926.858&lt;/C1&gt;&lt;C2&gt;1262505.315&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+  &lt;City_V1.Constructions.Buildings TID=&quot;100415e2-db32-49aa-8d44-9eff1f38e372&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Parque de la Musique&lt;/Street&gt;&lt;Number&gt;1&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison Quatre&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.854&lt;/C1&gt;&lt;C2&gt;1262426.195&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698949.060&lt;/C1&gt;&lt;C2&gt;1262428.600&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698947.958&lt;/C1&gt;&lt;C2&gt;1262441.422&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+  &lt;City_V1.Constructions.Street TID=&quot;451cfaee-299f-4b72-bcc2-6b6a097ee0d2&quot;&gt;&lt;Name&gt;Rue des Fleures&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698929.609&lt;/C1&gt;&lt;C2&gt;1262506.186&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+  &lt;City_V1.Constructions.Street TID=&quot;d6ed2502-7161-4e04-8589-3cd6c84a51e0&quot;&gt;&lt;Name&gt;Rue de la Musique&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698929.609&lt;/C1&gt;&lt;C2&gt;1262506.186&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698943.596&lt;/C1&gt;&lt;C2&gt;1262509.027&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698959.332&lt;/C1&gt;&lt;C2&gt;1262489.795&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698980.969&lt;/C1&gt;&lt;C2&gt;1262480.834&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698993.863&lt;/C1&gt;&lt;C2&gt;1262415.486&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+  &lt;City_V1.Constructions.Street TID=&quot;1f47c793-326a-47ba-b076-8ae9f25b2990&quot;&gt;&lt;Name&gt;Rue de la Soleil&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698901.415&lt;/C1&gt;&lt;C2&gt;1262410.460&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.071&lt;/C1&gt;&lt;C2&gt;1262390.790&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698906.005&lt;/C1&gt;&lt;C2&gt;1262389.041&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698935.510&lt;/C1&gt;&lt;C2&gt;1262391.227&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698984.684&lt;/C1&gt;&lt;C2&gt;1262406.307&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698993.863&lt;/C1&gt;&lt;C2&gt;1262415.486&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+&lt;/City_V1.Constructions&gt;
+&lt;City_V1.Nature BID=&quot;6cc059e9-0182-4c9f-9208-28be3c172471&quot;&gt;
+  &lt;City_V1.Nature.Parks TID=&quot;3445b04b-a4ed-4a03-bb09-c9e52134cad6&quot;&gt;&lt;Name&gt;Parque de la Musique&lt;/Name&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698932.231&lt;/C1&gt;&lt;C2&gt;1262487.828&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698963.922&lt;/C1&gt;&lt;C2&gt;1262442.368&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698963.484&lt;/C1&gt;&lt;C2&gt;1262465.754&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698982.968&lt;/C1&gt;&lt;C2&gt;1262470.701&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698980.969&lt;/C1&gt;&lt;C2&gt;1262480.834&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698959.332&lt;/C1&gt;&lt;C2&gt;1262489.795&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Nature.Parks&gt;
+  &lt;City_V1.Nature.Parks TID=&quot;d7e73464-f27e-4d2d-848c-66735f3fe5af&quot;&gt;&lt;Name&gt;Parque des Fleures&lt;/Name&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698901.415&lt;/C1&gt;&lt;C2&gt;1262410.460&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698903.164&lt;/C1&gt;&lt;C2&gt;1262439.309&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Nature.Parks&gt;
+&lt;/City_V1.Nature&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<p>Dies sind im Wesentlichen die Daten in einem Dataset. Du hast vielleicht schon die <code>BID</code>-Felder bemerkt. Diese kennzeichnen die Behälter für jedes Thema. Es wäre technisch möglich, mehrere Behälter pro Thema im selben Dataset zu haben, aber das wird normalerweise nicht so verwendet.</p>
+<h3 id="daten-update-anstelle-eines-daten-imports">Daten Update anstelle eines Daten Imports</h3>
+<p>Wir müssen nun die Daten von Ul Qoma in unser physisches Modell mit dem ili2db-Parameter <code>--dataset "Ul Qoma"</code> importieren. Wenn der Dataset bereits in der physischen Datenbank existiert, machen wir keinen <code>--import</code>, sondern ein <code>--update</code>. Das bedeutet, dass alle Daten in diesem Dataset mit den Daten aus der <code>xtf</code>-Datei aktualisiert werden (und entfernt werden, wenn sie dort nicht vorhanden sind).</p>
+<p>With the Model Baker we do make generally an <code>--update</code>, , as we only import into existing datasets. If you want to delete all the data from this dataset first (even from baskets other than those contained in the transfer file), you can check the corresponding box. In this case, a <code>--replace</code> command will be executed instead.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The difference between a <code>--replace</code> and an <code>--update</code> is that the one hand with an <code>--update</code> the baskets that are not contained in the transferfile remain untouched and on the other hand the technical ids remain the physical database (because we "update"), whereas with  a <code>--replace</code> the are freshly created (because here we "delete" and "insert"). This means these two commands could trigger different backend functions (e.g. trigger functions on PostgreSQL).</p>
+</div>
+<h3 id="dataset-manager">Dataset Manager</h3>
+<p>To have a dataset called "Ul Qoma" selectable, we need to create it in the Dataset Manager.</p>
+<p><img alt="dataset manager" src="../../../assets/baskets_dataset_manager.png" /></p>
+<h4 id="creation-of-baskets">Creation of Baskets</h4>
+<p>With the <code>--update</code> of the data to a dataset, the needed baskets are created by <code>ili2db</code>.</p>
+<p>In case you create a new dataset and you want to collect <strong><em>fresh</em></strong> data in QGIS (no import of existing data), the baskets have to be created as well. Open for that <em>Manage baskets of selected dataset</em>.</p>
+<p><img alt="baket_manager" src="../../../assets/dataset_basket_manager.png" /></p>
+<p>Reasonable BIDs (the value stored in the <code>t_ili_tid</code>) values are generated. In this case with UUIDs it's pretty automatic. But in case you use a <code>STANDARDOID</code> or user defined OID type for your <code>BID</code>, you might need to edit them. For more information about OIDs, BIDs etc. check the <a href="../../background_info/oid_tid_generator">corresponding chapter</a>.</p>
+<h3 id="update-command">Update command</h3>
+<p>After that you can double-click the dataset field and choose "Ul Qoma". This command will be excecuted in the background:</p>
+<pre><code class="language-bash">java -jar /home/freddy/ili2pg-4.6.1.jar --update --dbhost localhost --dbport 5432 --dbusr postgres --dbpwd ****** --dbdatabase freds_bakery --dbschema thecityandthecity --importTid --importBid --dataset &quot;Ul Qoma&quot; /home/freddy/referencedata/TheCity_V1-ulqoma.xtf
+</code></pre>
+<p>As you can see <code>--importTid</code> and <code>--importBid</code> are automatically added to the command. The <code>--update</code> command requires stable TIDs and BIDs. In our use case the model defines stable TIDs and BIDs so they won't be required. But in case your model has not defined them, we need to tell ili2db to "assume" that the IDs we import are stable. Because otherwise a proper dataset / basket handling won't be possible.</p>
+<h2 id="structure-in-the-database">Structure in the Database</h2>
+<p>An end user does not need to know that. But it might be interessting to know how it looks like in the database.</p>
+<h3 id="dataset-and-data-of-ul-qoma">Dataset and Data of "Ul Qoma"</h3>
+<p>After importing your data of the city "Ul Qoma", there are now these two tables in the database. They look like this:</p>
+<p><em>t_ili2db_dataset:</em></p>
+<pre><code> t_id | datasetname
+------+-------------
+    4 | Ul Qoma
+</code></pre>
+<p><em>t_ili2db_basket:</em></p>
+<pre><code> t_id | dataset |         topic         |              t_ili_tid               |      attachmentkey      | domains
+------+---------+-----------------------+--------------------------------------+-------------------------+---------
+    5 |       4 | City_V1.Constructions | d861b84f-7068-43d0-b8c1-f0d2f200b075 | TheCity_V1-ulqoma.xtf-5 |
+   23 |       4 | City_V1.Nature        | 8d4b122c-3582-447c-b933-3175674151e0 | TheCity_V1-ulqoma.xtf-5 |
+</code></pre>
+<p>As you can see the two baskets have been created and connected to the dataset you created before. In fact they do not exactly look like this on your system. There will be the default dataset called <code>Baseset</code> created by Model Baker on the creation of the physical database and the corresponding baskets per topic.</p>
+<p>When we check out the data now, we see that they are referencing the baskets (which further references the dataset).</p>
+<p><em>street:</em></p>
+<pre><code> t_id | t_basket |              t_ili_tid               |       aname       |      ageometry
+------+----------+--------------------------------------+-------------------+--------------------
+   19 |        5 | 7bcc0efd-1d81-400a-8dfb-1f17f4e72287 | Main Route        | 01020000200808[...]
+   20 |        5 | 3eab5bd9-3dc8-4e73-81f1-b8d8cfaba748 | Tiny Route        | 01020000200804[...]
+   21 |        5 | b5c3d22c-974f-49c9-b361-d85dbdc4000b | Park Way          | 01020000200808[...]
+   22 |        5 | d954d3c4-ec24-44cd-af2d-d7f3af781a18 | Mullholland Drive | 01020000200808[...]
+</code></pre>
+<p><em>parks:</em></p>
+<pre><code> t_id | t_basket |              t_ili_tid               |   aname     |      ageometry
+------+----------+--------------------------------------+-------------+--------------------------
+   24 |       23 | dbe968d7-e41d-4c14-9560-c2161bea76db | UlQoma Park | 01030000200808000800[...]
+   25 |       23 | 574eed9f-4cef-4747-8cbb-5e8519898626 | Big Green   | 01030000200808000000[...]
+   26 |       23 | d92d5cde-7ef3-48e8-b6cc-e370a5cba64d | Selmas Park | 01030000200080033330[...]
+</code></pre>
+<h3 id="datasets-and-data-of-ul-qoma-and-beszel">Datasets and Data of "Ul Qoma" and "Besźel"</h3>
+<p>It looks more interesting when we import the data of "Besźel" as well.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2pg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;City_V1&quot; VERSION=&quot;2020-06-22&quot; URI=&quot;https://modelbaker.ch&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;City_V1.Constructions BID=&quot;7dc3c035-b281-412f-9ba3-c69481054974&quot;&gt;
+&lt;City_V1.Constructions.Buildings TID=&quot;c7c3e013-b5bb-474d-b7d8-1f8de718e160&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Rue des Fleurs&lt;/Street&gt;&lt;Number&gt;1&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison Une&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.284&lt;/C1&gt;&lt;C2&gt;1262445.346&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.726&lt;/C1&gt;&lt;C2&gt;1262460.945&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+&lt;City_V1.Constructions.Buildings TID=&quot;3d6ceabe-7674-4436-8316-ef3b72ba1327&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Rue des Fleurs&lt;/Street&gt;&lt;Number&gt;2&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison 2&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.726&lt;/C1&gt;&lt;C2&gt;1262460.945&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698911.469&lt;/C1&gt;&lt;C2&gt;1262479.960&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698906.189&lt;/C1&gt;&lt;C2&gt;1262485.007&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698895.825&lt;/C1&gt;&lt;C2&gt;1262467.883&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+&lt;City_V1.Constructions.Buildings TID=&quot;d93069ea-ca81-4891-8055-e5791d1be167&quot;&gt;&lt;Description&gt;Maison trois&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698923.489&lt;/C1&gt;&lt;C2&gt;1262491.762&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698928.297&lt;/C1&gt;&lt;C2&gt;1262492.854&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698926.858&lt;/C1&gt;&lt;C2&gt;1262505.315&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+&lt;City_V1.Constructions.Buildings TID=&quot;100415e2-db32-49aa-8d44-9eff1f38e372&quot;&gt;&lt;Address&gt;&lt;City_V1.Address&gt;&lt;Street&gt;Parque de la Musique&lt;/Street&gt;&lt;Number&gt;1&lt;/Number&gt;&lt;/City_V1.Address&gt;&lt;/Address&gt;&lt;Description&gt;Maison Quatre&lt;/Description&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.854&lt;/C1&gt;&lt;C2&gt;1262426.195&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698949.060&lt;/C1&gt;&lt;C2&gt;1262428.600&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698947.958&lt;/C1&gt;&lt;C2&gt;1262441.422&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Buildings&gt;
+&lt;City_V1.Constructions.Street TID=&quot;451cfaee-299f-4b72-bcc2-6b6a097ee0d2&quot;&gt;&lt;Name&gt;Rue des Fleurs&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698916.495&lt;/C1&gt;&lt;C2&gt;1262502.034&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698929.609&lt;/C1&gt;&lt;C2&gt;1262506.186&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+&lt;City_V1.Constructions.Street TID=&quot;d6ed2502-7161-4e04-8589-3cd6c84a51e0&quot;&gt;&lt;Name&gt;Rue de la Musique&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698929.609&lt;/C1&gt;&lt;C2&gt;1262506.186&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698943.596&lt;/C1&gt;&lt;C2&gt;1262509.027&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698959.332&lt;/C1&gt;&lt;C2&gt;1262489.795&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698980.969&lt;/C1&gt;&lt;C2&gt;1262480.834&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698993.863&lt;/C1&gt;&lt;C2&gt;1262415.486&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+&lt;City_V1.Constructions.Street TID=&quot;1f47c793-326a-47ba-b076-8ae9f25b2990&quot;&gt;&lt;Name&gt;Rue de neuf Soleils&lt;/Name&gt;&lt;Geometry&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698901.415&lt;/C1&gt;&lt;C2&gt;1262410.460&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698902.071&lt;/C1&gt;&lt;C2&gt;1262390.790&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698906.005&lt;/C1&gt;&lt;C2&gt;1262389.041&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698935.510&lt;/C1&gt;&lt;C2&gt;1262391.227&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698984.684&lt;/C1&gt;&lt;C2&gt;1262406.307&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698993.863&lt;/C1&gt;&lt;C2&gt;1262415.486&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/Geometry&gt;&lt;/City_V1.Constructions.Street&gt;
+&lt;/City_V1.Constructions&gt;
+&lt;City_V1.Nature BID=&quot;6cc059e9-0182-4c9f-9208-28be3c172471&quot;&gt;
+&lt;City_V1.Nature.Parks TID=&quot;3445b04b-a4ed-4a03-bb09-c9e52134cad6&quot;&gt;&lt;Name&gt;Parque de la Musique&lt;/Name&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698932.231&lt;/C1&gt;&lt;C2&gt;1262487.828&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698934.417&lt;/C1&gt;&lt;C2&gt;1262440.620&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698963.922&lt;/C1&gt;&lt;C2&gt;1262442.368&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698963.484&lt;/C1&gt;&lt;C2&gt;1262465.754&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698982.968&lt;/C1&gt;&lt;C2&gt;1262470.701&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698980.969&lt;/C1&gt;&lt;C2&gt;1262480.834&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698959.332&lt;/C1&gt;&lt;C2&gt;1262489.795&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698940.099&lt;/C1&gt;&lt;C2&gt;1262488.920&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Nature.Parks&gt;
+&lt;City_V1.Nature.Parks TID=&quot;d7e73464-f27e-4d2d-848c-66735f3fe5af&quot;&gt;&lt;Name&gt;Parque des Fleurs&lt;/Name&gt;&lt;Geometry&gt;&lt;SURFACE&gt;&lt;BOUNDARY&gt;&lt;POLYLINE&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698901.415&lt;/C1&gt;&lt;C2&gt;1262410.460&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698903.164&lt;/C1&gt;&lt;C2&gt;1262439.309&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698886.335&lt;/C1&gt;&lt;C2&gt;1262452.203&lt;/C2&gt;&lt;/COORD&gt;&lt;COORD&gt;&lt;C1&gt;2698866.447&lt;/C1&gt;&lt;C2&gt;1262410.241&lt;/C2&gt;&lt;/COORD&gt;&lt;/POLYLINE&gt;&lt;/BOUNDARY&gt;&lt;/SURFACE&gt;&lt;/Geometry&gt;&lt;/City_V1.Nature.Parks&gt;
+&lt;/City_V1.Nature&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<p>We create the dataset "Besźel" with the Dataset Manager and update the data with the following command.</p>
+<pre><code class="language-bash">java -jar /home/freddy/ili2pg-4.6.1.jar --update --dbhost localhost --dbport 5432 --dbusr postgres --dbpwd ****** --dbdatabase freds_bakery --dbschema thecityandthecity --importTid --importBid --dataset Besźel /home/dave/dev/gh_signedav/usabilitydave/referencedata/TheCity_V1-beszel.xtf
+</code></pre>
+<p><em>t_ili2db_dataset:</em></p>
+<pre><code> t_id | datasetname
+------+-------------
+    4 | Ul Qoma
+   28 | Besźel
+</code></pre>
+<p><em>t_ili2db_basket:</em></p>
+<pre><code> t_id | dataset |         topic         |              t_ili_tid               |      attachmentkey       | domains
+------+---------+-----------------------+--------------------------------------+--------------------------+---------
+    5 |       4 | City_V1.Constructions | d861b84f-7068-43d0-b8c1-f0d2f200b075 | TheCity_V1-ulqoma.xtf-5  |
+   23 |       4 | City_V1.Nature        | 8d4b122c-3582-447c-b933-3175674151e0 | TheCity_V1-ulqoma.xtf-5  |
+   29 |      28 | City_V1.Constructions | 7dc3c035-b281-412f-9ba3-c69481054974 | TheCity_V1-beszel.xtf-29 |
+   40 |      28 | City_V1.Nature        | 6cc059e9-0182-4c9f-9208-28be3c172471 | TheCity_V1-beszel.xtf-29 |
+</code></pre>
+<p>When we check out the data now, we see that they are referencing the baskets (which further references the dataset).</p>
+<p><em>parks:</em></p>
+<pre><code> t_id | t_basket |              t_ili_tid               |         aname        |      ageometry
+------+----------+--------------------------------------+----------------------+--------------------
+   24 |       23 | dbe968d7-e41d-4c14-9560-c2161bea76db | UlQoma Park          | 01030000200800[...]
+   25 |       23 | 574eed9f-4cef-4747-8cbb-5e8519898626 | Big Green            | 01030000200000[...]
+   26 |       23 | d92d5cde-7ef3-48e8-b6cc-e370a5cba64d | Selmas Park          | 01030000200800[...]
+   41 |       40 | 3445b04b-a4ed-4a03-bb09-c9e52134cad6 | Parque de la Musique | 01030000200800[...]
+   42 |       40 | d7e73464-f27e-4d2d-848c-66735f3fe5af | Parque des Fleurs    | 01030000200000[...]
+</code></pre>
+<p><em>street:</em></p>
+<pre><code> t_id | t_basket |              t_ili_tid               |        aname        |      ageometry
+------+----------+--------------------------------------+---------------------+--------------------
+   20 |        5 | 3eab5bd9-3dc8-4e73-81f1-b8d8cfaba748 | Tiny Route          | 01020000200800[...]
+   21 |        5 | b5c3d22c-974f-49c9-b361-d85dbdc4000b | Park Way            | 01020000200800[...]
+   22 |        5 | d954d3c4-ec24-44cd-af2d-d7f3af781a18 | Mullholland Drive   | 01020000200000[...]
+   37 |       29 | 451cfaee-299f-4b72-bcc2-6b6a097ee0d2 | Rue des Fleurs      | 01020000200800[...]
+   38 |       29 | d6ed2502-7161-4e04-8589-3cd6c84a51e0 | Rue de la Musique   | 01020000200800[...]
+   39 |       29 | 1f47c793-326a-47ba-b076-8ae9f25b2990 | Rue de neuf Soleils | 01020000200800[...]
+</code></pre>
+<h2 id="working-with-datasets">Working with Datasets</h2>
+<p>Every layer has now a field <code>t_basket</code> that needs to be filled up, because every feature needs to be in a basket.</p>
+<p>Since the baskets are usually an intersection of topic and dataset and the topic is given by the model (every table is usually in one topic) it's mostly the dataset and the topic describing the basket in the GUI.</p>
+<h3 id="selecting-dataset">Selecting Dataset</h3>
+<p>Model Baker creates a Relation Reference Widget for it with only the relevant baskets (described by it's dataset name and it's topic name). This usually leads to a list of all available datasets.</p>
+<p>When adding a building the datasets are "Baseset", "Besźel", "Orciny" and "Ul Qoma" and the topic is "Constructions".</p>
+<p><img alt="dataset relationreference" src="../../../assets/dataset_relation_reference.png" /></p>
+<h3 id="dataset-selector">Dataset Selector</h3>
+<p>Because it is always an additional step to select the correct basket and since you work at one dataset at the time mostly, you can choose in the <em>Dataset Selector</em> of the Model Baker Toolbar what basket should be used as default value in the relation reference widget.</p>
+<p><img alt="dataset selector" src="../../../assets/dataset_selector.png" /></p>
+<p>The available baskets in the dataset selector depends on the layers datasource and topic. They change when another layer is selected. The chosen basket is stored in the project variables (<code>&lt;host&gt;_&lt;db&gt;_&lt;schema&gt;_&lt;topic&gt;</code> or <code>&lt;filepath&gt;_&lt;topic&gt;</code>).</p>
+<h3 id="special-case-of-domain-tables">Special case of domain tables</h3>
+<p>As mentioned before, a table is usually in one topic. This is not true for the domain tables used by several topics. When you add for example a "Building" and for this "Building" you add an "Address", you have to choose the correct basket for the "Address" feature you create as well. In this case you get a list in the Relation Reference with all available baskets.</p>
+<p><img alt="dataset relationreference domain" src="../../../assets/dataset_relation_reference_domain.png" /></p>
+<h2 id="basket-oid-or-not"><code>BASKET OID</code> or not</h2>
+<p>It's up to the modeller if the <code>BASKET OID</code> should be defined or not. Here it's described how it's handled in the context of the Model Baker.</p>
+<h3 id="using-basket-oid">Using <code>BASKET OID</code></h3>
+<p>You can have <code>BASKET OID</code> defined in the model.</p>
+<pre><code>INTERLIS 2.3;
+
+MODEL Maps_V1 (en)
+AT &quot;https://modelbaker.ch&quot;
+VERSION &quot;2021-12-15&quot;  =
+
+  TOPIC Maps =
+    BASKET OID AS INTERLIS.UUIDOID;
+    OID AS INTERLIS.UUIDOID;
+    CLASS Map =
+      Map_Name : TEXT;
+    END Map;
+  END Maps;
+
+END Maps_V1.
+</code></pre>
+<p>This ensures that the data can be validated for the proper format of the <code>BID</code> and ili2db considers baskets on import/update/export. If this is defined in the model, it's required to use the basket handling in QGIS (we need to create the physical model the ili2db parameter <code>--createBasketCol</code>). This is currently not automatically detected by the Model Baker and needs to be assured by the user.</p>
+<p>On using basket handling the <code>BID</code> is validated and exported:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2gpkg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;Maps_V1&quot; VERSION=&quot;2021-12-15&quot; URI=&quot;mailto:U80863546@localhost&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;Maps_V1.Maps BID=&quot;074eab94-8c7a-452f-b686-1c5ba250e705&quot;&gt;
+&lt;Maps_V1.Maps.Map TID=&quot;b5ca7dbc-8fde-4d06-a830-538d8069a3cf&quot;&gt;&lt;Map_Name&gt;test&lt;/Map_Name&gt;&lt;/Maps_V1.Maps.Map&gt;
+&lt;/Maps_V1.Maps&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<p>When the user decides to use no basket handling, the collected data would not be considered by ili2db (because they are in no basket) and the export will be empty:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2gpkg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;Maps_V1&quot; VERSION=&quot;2021-12-15&quot; URI=&quot;mailto:U80863546@localhost&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<h3 id="not-using-basket-oid">Not using <code>BASKET OID</code></h3>
+<p>You can still use the basket handling without having <code>BASKET OID</code> defined the model. As <a href="../../background_info/basket_handling/#update-command">mentioned</a> <code>--importBid</code> are automatically added to the command, when the basket handling active. So ili2db assumes that the <code>BID</code>s we import are stable. This is not ensured by the model definition, it has to be ensured by the user providing the data.</p>
+<pre><code>INTERLIS 2.3;
+
+MODEL Maps_V1 (en)
+AT &quot;https://modelbaker.ch&quot;
+VERSION &quot;2021-12-15&quot;  =
+
+  TOPIC Maps =
+    OID AS INTERLIS.UUIDOID;
+    CLASS Map =
+      Map_Name : TEXT;
+    END Map;
+  END Maps;
+
+END Maps_V1.
+</code></pre>
+<p>On the export the <code>BID</code>s are considered:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2gpkg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;Maps_V1&quot; VERSION=&quot;2021-12-15&quot; URI=&quot;mailto:U80863546@localhost&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;Maps_V1.Maps BID=&quot;072988b6-cc0a-422f-984a-574d5458b840&quot;&gt;
+&lt;Maps_V1.Maps.Map TID=&quot;2ae2bcad-d011-4880-8ff9-23dde282911b&quot;&gt;&lt;Map_Name&gt;test with baskets&lt;/Map_Name&gt;&lt;/Maps_V1.Maps.Map&gt;
+&lt;/Maps_V1.Maps&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<p>When not having <code>BASKET OID</code> defined, it's possible not to use the basket handling as well. When exporting the data then, it will succeed.</p>
+<p>But be aware: The <code>BID</code>s are not stable.</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;TRANSFER xmlns=&quot;http://www.interlis.ch/INTERLIS2.3&quot;&gt;
+&lt;HEADERSECTION SENDER=&quot;ili2gpkg-4.6.1-63db90def1260a503f0f2d4cb846686cd4851184&quot; VERSION=&quot;2.3&quot;&gt;&lt;MODELS&gt;&lt;MODEL NAME=&quot;Maps_V1&quot; VERSION=&quot;2021-12-15&quot; URI=&quot;mailto:U80863546@localhost&quot;&gt;&lt;/MODEL&gt;&lt;/MODELS&gt;&lt;/HEADERSECTION&gt;
+&lt;DATASECTION&gt;
+&lt;Maps_V1.Maps BID=&quot;Maps_V1.Maps&quot;&gt;
+&lt;Maps_V1.Maps.Map TID=&quot;3779cdf4-e075-4471-aa51-f44d0af1e2b0&quot;&gt;&lt;Map_Name&gt;daves no bask test&lt;/Map_Name&gt;&lt;/Maps_V1.Maps.Map&gt;
+&lt;/Maps_V1.Maps&gt;
+&lt;/DATASECTION&gt;
+&lt;/TRANSFER&gt;
+</code></pre>
+<h2 id="basket-data-in-extended-topics">Basket data in extended topics</h2>
+<p>Sometimes there is a confusion when in the data file the XML element name of objects divert from the XML element name of the basket. This comes from inheritances of topics.</p>
+<h3 id="example">Example</h3>
+<p>Having this:</p>
+<pre><code>MODEL Maps_V1 (en) AT &quot;https://modelbaker.ch&quot; VERSION &quot;2021-12-15&quot; =
+  TOPIC Maps =
+    OID AS INTERLIS.UUIDOID;
+    CLASS Map =
+      Map_Name : TEXT;
+    END Map;
+  END Maps;
+
+END Maps_V1.
+</code></pre>
+<p>and extending the topic and adding a new class:</p>
+<pre><code>MODEL CityMaps_V1 (en) AT &quot;https://modelbaker.ch&quot; VERSION &quot;2021-12-15&quot; =
+  IMPORTS Maps_V1;
+
+  TOPIC CityMaps EXTENDS Maps_V1.Maps =
+    OID AS INTERLIS.UUIDOID;
+    CLASS City =
+      City_Name : TEXT;
+    END City;
+  END CityMaps;
+
+END CityMaps_V1.
+</code></pre>
+<p>You now add objects, one Map-Object and one City-Object. You work - of course - in the basket of the extended topic (provided by the Dataset Selector of the optimized project). And you export the data:</p>
+<pre><code class="language-xml">&lt;CityMaps_V1.CityMaps BID=&quot;405b6f5c-6cb5-4c0e-b1ab-a4bd30ffe7fe&quot;&gt;
+&lt;CityMaps_V1.CityMaps.City TID=&quot;1&quot;&gt;&lt;City_Name&gt;Ul Qoma&lt;/City_Name&gt;&lt;/CityMaps_V1.CityMaps.City&gt;
+&lt;Maps_V1.Maps.Map TID=&quot;2&quot;&gt;&lt;Map_Name&gt;Street Map XY&lt;/Map_Name&gt;&lt;/Maps_V1.Maps.Map&gt;
+&lt;/CityMaps_V1.CityMaps&gt;
+</code></pre>
+<p>Why do the XML element name divert now?</p>
+<h3 id="reason">Reason</h3>
+<p>A basket is an instance of a topic. Means a basket can contain objects (instaces of classes) that are allowed according to the topic. These classes can be defined in this topic (of the basket) <em>or as well</em> - if the topic of the basked is an extension of a base-topic - in the base-topic. That's why in the transfer file those classes can have different XML element names even when they are in the same basket.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

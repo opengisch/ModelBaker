@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/about/development/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/about/development/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/about/development/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/about/translation/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/about/translation/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/about/translation/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/basket_handling/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/basket_handling/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/basket_handling/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/catalogues/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/catalogues/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/catalogues/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/extended_models_optimization/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/extended_models_optimization/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/extended_models_optimization/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/faq/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/faq/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/faq/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/meta_attributes/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/meta_attributes/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/meta_attributes/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/oid_tid_generator/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/oid_tid_generator/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/oid_tid_generator/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/repositories/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/repositories/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/repositories/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/upgrade_3_to_4/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/upgrade_3_to_4/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/upgrade_3_to_4/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/modelbaker_integration/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/modelbaker_integration/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/modelbaker_integration/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/overview/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/overview/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/overview/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/technical_concept/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/technical_concept/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/technical_concept/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/user_guide/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/user_guide/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/user_guide/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/export_workflow/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/export_workflow/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/export_workflow/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/get_started/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/get_started/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/get_started/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/import_workflow/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/import_workflow/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/import_workflow/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/plugin_configuration/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/plugin_configuration/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/plugin_configuration/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/topping_exporter/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/topping_exporter/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/topping_exporter/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/user_guide/validation/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/validation/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/validation/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/about/development/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/about/development/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/about/development/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/about/translation/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/about/translation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/about/translation/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/basket_handling/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/basket_handling/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/basket_handling/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/catalogues/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/catalogues/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/catalogues/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/extended_models_optimization/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/extended_models_optimization/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/extended_models_optimization/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/faq/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/faq/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/meta_attributes/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/meta_attributes/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/meta_attributes/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/oid_tid_generator/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/oid_tid_generator/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/oid_tid_generator/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/repositories/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/repositories/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/repositories/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/upgrade_3_to_4/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/upgrade_3_to_4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/upgrade_3_to_4/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/modelbaker_integration/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/modelbaker_integration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/modelbaker_integration/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/overview/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/overview/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/technical_concept/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/technical_concept/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/technical_concept/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/user_guide/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/background_info/usabilityhub/user_guide/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/user_guide/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/export_workflow/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/export_workflow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/export_workflow/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/get_started/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/get_started/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/get_started/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/import_workflow/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/import_workflow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/import_workflow/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/plugin_configuration/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/plugin_configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/plugin_configuration/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/topping_exporter/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/topping_exporter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/topping_exporter/"/>
+    </url>
+    <url>
+        <loc>https://opengisch.github.io/QgisModelBaker/de/user_guide/validation/</loc>
+        <lastmod>2024-12-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://opengisch.github.io/QgisModelBaker/de/user_guide/validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://opengisch.github.io/QgisModelBaker/user_guide/validation/"/>
+    </url>
+</urlset>

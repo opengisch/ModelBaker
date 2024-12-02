@@ -1,0 +1,1664 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opengisch.github.io/QgisModelBaker/background_info/usabilityhub/modelbaker_integration/">
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../technical_concept/">
+      
+      
+      <link rel="icon" href="../../../assets/modelbaker_icon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Model Baker Integration - QGIS Model Baker Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metaconfiguration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="QGIS Model Baker Documentation" class="md-header__button md-logo" aria-label="QGIS Model Baker Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/modelbaker_icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS Model Baker Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Baker Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../de/background_info/usabilityhub/modelbaker_integration/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opengisch/QgisModelBaker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opengisch/QgisModelBaker
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../user_guide/get_started/" class="md-tabs__link">
+          
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../repositories/" class="md-tabs__link">
+          
+  
+  Tipps & Tricks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/development/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="QGIS Model Baker Documentation" class="md-nav__button md-logo" aria-label="QGIS Model Baker Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/modelbaker_icon.svg" alt="logo">
+
+    </a>
+    QGIS Model Baker Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opengisch/QgisModelBaker" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opengisch/QgisModelBaker
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/import_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model and Data Import Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/export_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Data Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validate Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/topping_exporter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topping Exporter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user_guide/plugin_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugin Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tipps & Tricks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tipps & Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repositories/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basket_handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basket and Dataset Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oid_tid_generator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OID Generator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UsabILIty Toppings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            UsabILIty Toppings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Model Baker Integration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Model Baker Integration
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metaconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metaconfiguration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metaconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-in-the-model-baker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation in the Model Baker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refrencing-other-interlis-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refrencing other INTERLIS models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toppings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toppings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-topping-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Topping (yaml)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Topping (yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layertree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layertree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layertree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renaming-of-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Renaming of layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-models-with-multiple-project-toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Models with multiple Project Toppings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-properties-topping-qml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Properties Topping (qml)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-definition-topping-qlr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Definition Topping (qlr)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referenced Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referenced Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-referenced-catalogues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directly Referenced Catalogues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-models-and-their-toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Models and their Toppings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple Models and their Toppings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a local repository
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical_concept/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Technical Concept
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extended_models_optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimized Projects for Extended Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../catalogues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Catalogues and their special cases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_attributes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meta Attributes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../upgrade_3_to_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migrate from ili2db 3 to 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metaconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metaconfiguration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metaconfiguration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-in-the-model-baker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation in the Model Baker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refrencing-other-interlis-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refrencing other INTERLIS models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toppings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Toppings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-topping-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Topping (yaml)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Topping (yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layertree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layertree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layertree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renaming-of-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Renaming of layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#display-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-models-with-multiple-project-toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Models with multiple Project Toppings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-properties-topping-qml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Properties Topping (qml)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-definition-topping-qlr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Definition Topping (qlr)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referenced Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referenced Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-referenced-catalogues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directly Referenced Catalogues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-models-and-their-toppings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Models and their Toppings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple Models and their Toppings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-local-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a local repository
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Model Baker Integration</h1>
+
+<h2 id="metaconfiguration">Metaconfiguration</h2>
+<p>... and how it's handled in Model Baker.</p>
+<h3 id="general-handling">General Handling</h3>
+<p>ili2db configurations are defined in the <em>metaconfiguration file</em>.</p>
+<pre><code class="language-ini">[ch.ehi.ili2db]
+defaultSrsCode = 2056
+smart2Inheritance = true
+strokeArcs = false
+importTid = true
+</code></pre>
+<p>ili2db can be called like this:</p>
+<pre><code>ili2db --metaConfig ilidata:metconfigId --schemaimport --db....
+ili2db --metaConfig ilidata:metconfigId --import --db....
+ili2db --metaConfig ilidata:metconfigId --import --db....  data.xtf
+ili2db --metaConfig ilidata:metconfigId --export --db....  data.xtf
+</code></pre>
+<p>... or with a local <em>metakonfiguration file</em>:</p>
+<pre><code>ili2db --metaConfig localfile.ini --import --db....  data.xtf
+</code></pre>
+<h3 id="implementation-in-the-model-baker">Implementation in the Model Baker</h3>
+<p>Some parameters are automatically set in the background when ili2db is called by the Model Baker (like <code>--coalesceCatalogueRef --createEnumTabs --createNumChecks --createUnique --createFk --createFkIdx --coalesceMultiSurface --coalesceMultiLine --coalesceMultiPoint --coalesceArray --beautifyEnumDispName --createGeomIdx --createMetaInfo --expandMultilingual --createTypeConstraint --createEnumTabsWithId --createTidCol --importTid</code>), and others can be configured by the user in the input mask of the Model Baker (like <code>--smart1Inheritance</code>/<code>--smart2Inheritance</code>, <code>--createBasketCol</code>, <code>--strokeArcs</code>, <code>--iliMetaAttrs</code> (for <code>ini</code>/<code>toml</code>), <code>--preScript</code> and <code>--postScript</code> or <code>--models</code>). In addition, the relevant <em>metaconfiguration file</em> is passed to ili2db. But parameters passed directly to ili2db <strong><em>override</em></strong> the configurations of the passed <em>metaconfiguration file</em>.</p>
+<p>The Model Baker reads the ili2db parameters from the <em>metaconfiguration file</em>. The parameters that can be set via the input mask of the Model Baker are loaded from the <em>metaconfiguration file</em> into the input mask. The user can now customize them. The Model Baker now passes the <em>metaconfiguration file</em> and the parameters from the input mask (whether customized or not) to ili2db. So if the parameters were listed in the <em>metaconfiguration file</em> but then disabled in the input mask, they will be passed to ili2db as <code>false</code>.</p>
+<p>Changes are marked visually in the input mask for <em>ili2db Options</em>:</p>
+<p><img alt="uml" src="../../../assets/usabilityhub_ili2dboptions.png" /></p>
+<p>The parameters set by the Model Baker in the background are still set. But they can be overridden in the <em>metaconfiguration file</em>. However, if in the <em>metaconfiguration file</em> such parameters are not mentioned, then they are also not overridden with <code>false</code>.</p>
+<p>Exception is the setting to consider <strong><em>only</em></strong> the <em>metaconfiguration file</em>. If this is set, then only the parameters configured in the <em>metaconfiguration file</em> should be set and no others (Exception from the exception is <code>--models</code> and <code>--sqlEnableNull</code> on "Run withouth constraints"):</p>
+<pre><code class="language-ini">[CONFIGURATION]
+qgis.modelbaker.metaConfigParamsOnly = True
+</code></pre>
+<p>When this parameter is set the <em>Advanced Options</em> and <em>CRS</em> settings are disabled in the input mask.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be aware that the UsabILIty Toppings Repository (located at https://models.opengis.ch) is not found by ili2db when it's not passed additionally to it with <code>--modelDir</code>. Currently we do that automatically. Means when you choose a metaconfig file to pass, <code>--modelDir https://models.opengis.ch</code> is automatically added to the command. Concerning custom directory/repository, you have to add it manually in the <a href="../../../user_guide/plugin_configuration/#custom-model-directories">Model Baker Settings</a>.</p>
+</div>
+<h3 id="refrencing-other-interlis-models">Refrencing other INTERLIS models</h3>
+<p>Using the ili2db settings, it is possible to reference other models from <em>metaconfiguration files</em>. If the setting contains the value <code>models=KbS_LV95_v1_4;KbS_Basis</code>, then this is also adjusted in the Model Baker input mask. Of course, a search for possible <em>metaconfiguration files</em> on the Repositories will be started again, according to the currently set models. See also for that <a href="#multiple-models-and-their-toppings">Multiple Models and their Toppings</a>.</p>
+<h2 id="toppings">Toppings</h2>
+<p>... and their configuration.</p>
+<p><em>Topping files</em> are files that are referenced in the <em>metaconfiguration</em> or in other <em>topping files</em> like e.g. the <em>project topping file</em> and contain the configuration information of the GIS project or parts of it. So they can be form configurations, style attribute as well as the legend tree structure. Individual topping files can be used for each tool.</p>
+<p>The Model Baker supports these kinds of <em>topping files</em>:</p>
+<ul>
+<li>Project topping files: <code>yaml</code> files for project settings like legend display, linking to layer configuration files and layer order</li>
+<li>QML layer style: <code>qml</code> files for layer configurations</li>
+<li>Layer definition: <code>qlr</code> files for layer definitions</li>
+</ul>
+<h3 id="project-topping-yaml">Project Topping (<code>yaml</code>)</h3>
+<p>Information about the project like the layer tree, the layers in the layer tree and the display order may be contained in a <em>toppingfile</em>. The <code>DatasetMetadata-Id</code> of the file is defined in the <em>metaconfiguration file</em> via the parameter <code>qgis.modelbaker.projecttopping</code> (or the deprecated <code>qgis.modelbaker.layertree</code>).</p>
+<p>The file is written in <code>yaml</code>:</p>
+<pre><code class="language-yaml">layertree:
+  - &quot;Belasteter Standort&quot;:
+      group: true
+      checked: true
+      expanded: true
+      mutually-exclusive: true
+      mutually-exclusive-child: 1
+      child-nodes:
+        - &quot;Belasteter_Standort (Geo_Lage_Punkt)&quot;:
+            featurecount: true
+            qmlstylefile: &quot;ilidata:ch.opengis.topping.opengisch_KbS_LV95_V1_4_001&quot;
+        - &quot;Belasteter_Standort (Geo_Lage_Polygon)&quot;:
+            expanded: true
+            qmlstylefile: &quot;ilidata:ch.opengis.topping.opengisch_KbS_LV95_V1_4_023&quot;
+  - &quot;Informationen&quot;:
+      group: true
+      checked: true
+      expanded: true
+      child-nodes:
+        - &quot;EGRID_&quot;:
+        - &quot;Deponietyp_&quot;:
+        - &quot;ZustaendigkeitKataster&quot;:
+            featurecount: true
+        - &quot;Untersuchungsmassnahmen_Definition&quot;:
+            featurecount: false
+        - &quot;StatusAltlV_Definition&quot;:
+        - &quot;Standorttyp_Definition&quot;:
+        - &quot;Deponietyp_Definition&quot;:
+        - &quot;Parzellenidentifikation&quot;:
+        - &quot;UntersMassn_&quot;:
+        - &quot;Text Infos&quot;:
+            group: true
+            checked: false
+            expanded: true
+            child-nodes:
+              - &quot;MultilingualMText&quot;:
+              - &quot;LocalisedMText&quot;:
+              - &quot;MultilingualText&quot;:
+              - &quot;LocalisedText&quot;:
+        - &quot;Other Infos&quot;:
+            group: true
+            checked: true
+            expanded: false
+            child-nodes:
+              - &quot;StatusAltlV&quot;:
+              - &quot;Standorttyp&quot;:
+              - &quot;UntersMassn&quot;:
+              - &quot;Deponietyp&quot;:
+              - &quot;LanguageCode_ISO639_1&quot;:
+              - &quot;Another interesting layer&quot;:
+                definitionfile: &quot;ilidata:ch.opengis.topping.opengisch_roadsigns_layer_101&quot;
+              - &quot;WMS Map&quot;:
+                provider: &quot;wms&quot;
+                uri: &quot;contextualWMSLegend=0&amp;crs=EPSG:2056&amp;dpiMode=7&amp;featureCount=10&amp;format=image/jpeg&amp;layers=ch.bav.kataster-belasteter-standorte-oev_lines&amp;styles=default&amp;url=https://wms.geo.admin.ch/?%0ASERVICE%3DWMS%0A%26VERSION%3D1.3.0%0A%26REQUEST%3DGetCapabilities&quot;
+
+layerorder:
+  - &quot;Belasteter_Standort (Geo_Lage_Polygon)&quot;
+  - &quot;Belasteter_Standort (Geo_Lage_Punkt)&quot;
+</code></pre>
+<h4 id="layertree">Layertree</h4>
+<p>The layertree is described using a tree structure in the <code>yaml</code> format.</p>
+<p>Top level entry is <code>layertree</code> (or outdated: <code>legend</code>). This entry is not shown in the legend.</p>
+<p>It can be followed by groups or layers. The following parameters are valid for both types:</p>
+<ul>
+<li><code>checked: true/false</code> defines if the node is visible or not</li>
+<li><code>expanded: true/false</code> defines if the node is expanded or not</li>
+<li><code>featurecount: true/false</code> defines if the number of features should be displayed or not</li>
+<li><code>definitionfile: "ilidata..."</code> defines the path/link to a layer/group definition QLR file.</li>
+</ul>
+<p>Groups must be defined as such with the parameter <code>group: true</code>. Otherwise it is assumed to be a layer. The groups should contain the parameter <code>child-nodes</code> where subgroups and layers can be defined.</p>
+<p>Additionally the groups have the <code>mutually-exclusive</code> property. This means if the subgroups and layers are mutually exclusive. This means that only one child element can be visible at a time.</p>
+<ul>
+<li><code>mutually-exclusive: true</code> if only one child element should be visible at a time.</li>
+<li><code>mutually-exclusive-child: 0</code> the child element to be displayed.</li>
+</ul>
+<p>Layers can additionally have the path/link defined to QML files containing layer properties like form configuration, symbology etc.
+- <code>qmlstylefiles: "ilidata..."</code></p>
+<p>And one can define the source directly in the layers as well:
+- <code>provider: "wms"</code> defines the provider type (supported is <code>ogr</code>, <code>postgres</code> and <code>wms</code>)
+- <code>uri: "contextualWMSLegend=0&amp;crs=EPSG...</code> defines the layer's source uri.</p>
+<p>The <code>yaml</code> file shown above results in a legend structure in <em>QGIS</em>.</p>
+<p><img alt="uml" src="../../../assets/usabilityhub_qgis_legend.png" /></p>
+<h5 id="renaming-of-layers">Renaming of layers</h5>
+<p>Usually the existing layers are recognized by the names. This works fine for the most cases. But sometimes (e.g. when having an extended model with layers having the same name like the base model) the layers need to be recognized by other parameters. This gives the possiblity to name the layer as you want.</p>
+<p>It recognizes layers from the database optionally by <code>tablename</code> and <code>geometrycolumn</code>. INTERLIS based layers can be identified by the <code>iliname</code> as well. It takes the first match of <code>tablename</code> or <code>iliname</code> and otherwise it looks for the layername.</p>
+<p>See the example:</p>
+<pre><code class="language-yaml">    - &quot;KbS_LV95_V1_4 Layers&quot;:
+        group: true
+        child-nodes:
+            - &quot;Punkt Standort&quot;:
+                tablename: &quot;belasteter_standort&quot;
+                geometrycolumn: &quot;geo_lage_punkt&quot;
+                qmlstylefile: &quot;../layerstyle/opengisch_KbS_LV95_V1_4_004_belasteterstandort_punkt.qml&quot;
+            - &quot;Polygon Standort&quot;:
+                iliname: &quot;KbS_LV95_V1_4.Belastete_Standorte.Belasteter_Standort&quot;
+                geometrycolumn: &quot;geo_lage_polygon&quot;
+                qmlstylefile: &quot;../layerstyle/opengisch_KbS_LV95_V1_4_001_belasteterstandort_polygon.qml&quot;
+            - &quot;Parzellen&quot;:
+                tablename: &quot;parzellenidentifikation&quot;
+                iliname: &quot;KbS_Basis_V1_4.Parzellenidentifikation&quot;
+                qmlstylefile: &quot;../layerstyle/opengisch_KbS_LV95_V1_4_005_parzellenidentifikation.qml&quot;
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware that relations loaded over qml style files rely on the layer names. This means, that you have to be carefull when the style files have been exported with other layer names than defined in the YAML.</p>
+</div>
+<h4 id="display-order">Display Order</h4>
+<p>The display order of the layers is defined as simple list:</p>
+<pre><code>layer-order:
+  - &quot;Belasteter_Standort (Geo_Lage_Polygon)&quot;
+  - &quot;Belasteter_Standort (Geo_Lage_Punkt)&quot;
+</code></pre>
+<h4 id="multiple-models-with-multiple-project-toppings">Multiple Models with multiple Project Toppings</h4>
+<p>Layers with the same data source will not be added twice when the project is regenerated. New layers and subgroups are - if possible - loaded into already existing groups. Otherwise geometry layers are added above and the groups "tables" and "domains" below.</p>
+<p>Thus legend structures from several <em>project topping files</em> are merged.</p>
+<h3 id="layer-properties-topping-qml">Layer Properties Topping (<code>qml</code>)</h3>
+<p>For layer properties like form configurations, symbology etc. <code>qml</code> files are loaded as <em>topping files</em>.</p>
+<p><em>Right-click on the layer &gt; Export &gt; Save as QGIS Layer Style File...</em></p>
+<p><img alt="style" src="../../../assets/usabilityhub_style.png" /></p>
+<p>The <code>qml</code> topping files are assigned directly in the layertree of the <em>project topping file</em>.</p>
+<pre><code class="language-yaml">- &quot;Belasteter_Standort (Geo_Lage_Punkt)&quot;:
+    featurecount: true
+    qmlstylefile: &quot;ilidata:ch.opengis.topping.opengisch_KbS_LV95_V1_4_001&quot;
+</code></pre>
+<p>The "deprecated" way to do the mapping in the <em>metaconfiguration file</em> is still supported.</p>
+<pre><code class="language-ini">[qgis.modelbaker.qml]
+&quot;Belasteter_Standort (Geo_Lage_Polygon)&quot;=file:toppings_in_modelbakerdir/layerstyle/opengisch_KbS_LV95_V1_4_001_belasteterstandort_polygon.qml
+&quot;Belasteter_Standort (Geo_Lage_Punkt)&quot;=ilidata:ch.opengis.topping.opengisch_KbS_LV95_V1_4_001
+ZustaendigkeitKataster=ilidata:ch.opengis.configs.KbS_LV95_V1_4_0032
+</code></pre>
+<h3 id="layer-definition-topping-qlr">Layer Definition Topping (<code>qlr</code>)</h3>
+<p>Complete layer definitions (or groups as well) can be exported as <em>topping files</em>.</p>
+<p><em>Right-click on the layer &gt; Export &gt; Save as Layer Definition File...</em></p>
+<p>The <code>qlr</code> topping files are assigned directly in the layertree of the <em>project topping file</em>.</p>
+<pre><code class="language-yaml">- &quot;Roads from QLR&quot;:
+    definitionfile: &quot;ilidata:ch.opengis.topping.opengisch_roadsigns_layer_101&quot;
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The datasource in the QLR file is relative. This means you have to be carefull with QLR files providing file based datasources.</p>
+</div>
+<h2 id="referenced-data">Referenced Data</h2>
+<p>Catalogs and transferfiles (and other <code>itf</code>/<code>xtf</code>/<code>xml</code> files) can also be loaded. The <code>DatasetMetadata-Ids</code> are defined in the <em>Metaconfigurationfile</em> via the global parameter <code>ch.interlis.referenceData</code>. Multiple ids and file paths can be specified (separated by <code>;</code>).</p>
+<p>These data files are added to the list of files to import in the <a href="../../../user_guide/import_workflow/#import-of-interlis-data">wizard</a>.</p>
+<h3 id="directly-referenced-catalogues">Directly Referenced Catalogues</h3>
+<p>Catalogues can be linked directly in the ilidata.xml to the model names (without using a meta configuration file). Just add them as <code>referenceData</code> and add the model names in the <code>categories</code>.</p>
+<pre><code class="language-xml">  &lt;categories&gt;
+    &lt;DatasetIdx16.Code_&gt;
+      &lt;value&gt;http://codes.interlis.ch/type/referenceData&lt;/value&gt;
+    &lt;/DatasetIdx16.Code_&gt;
+    &lt;DatasetIdx16.Code_&gt;
+      &lt;value&gt;http://codes.interlis.ch/model/Wildruhezonen_LV95_V2_1&lt;/value&gt;
+    &lt;/DatasetIdx16.Code_&gt;
+    &lt;DatasetIdx16.Code_&gt;
+      &lt;value&gt;http://codes.interlis.ch/model/Wildruhezonen_LV03_V2_1&lt;/value&gt;
+    &lt;/DatasetIdx16.Code_&gt;
+  &lt;/categories&gt;
+</code></pre>
+<p>Model Baker checks the repositories for all the models contained in the database schema. If it founds a referenced catalogue data it provides them in the autocomplete widget on <a href="../../../user_guide/import_workflow/#import-of-interlis-data">Data Import</a>.</p>
+<pre><code class="language-xml">  &lt;files&gt;
+    &lt;DatasetIdx16.DataFile&gt;
+      &lt;fileFormat&gt;application/interlis+xml;version=2.3&lt;/fileFormat&gt;
+      &lt;file&gt;
+        &lt;DatasetIdx16.File&gt;
+          &lt;path&gt;BAFU/Wildruhezonen_Catalogues_V2_1.xml&lt;/path&gt;
+          &lt;md5&gt;1b76026907fc814bfaa12e2a4f53afa5&lt;/md5&gt;
+        &lt;/DatasetIdx16.File&gt;
+      &lt;/file&gt;
+    &lt;/DatasetIdx16.DataFile&gt;
+  &lt;/files&gt;
+</code></pre>
+<p>But already before the data import, the Model Baker checks the repositories for those referenced data. In the <a href="../../../user_guide/import_workflow/#import-of-interlis-model">Import of the INTERLIS Models</a> it provides all the models found in the <code>modelLink</code> property.</p>
+<pre><code class="language-xml">  &lt;baskets&gt;
+    &lt;DatasetIdx16.DataIndex.BasketMetadata&gt;
+      &lt;id&gt;ch.admin.bafu.wildruhezonen_catalogues_V2_1&lt;/id&gt;
+      &lt;version&gt;2020-02-24&lt;/version&gt;
+      &lt;model&gt;
+        &lt;DatasetIdx16.ModelLink&gt;
+          &lt;name&gt;Wildruhezonen_Codelisten_V2_1.Codelisten&lt;/name&gt;
+        &lt;/DatasetIdx16.ModelLink&gt;
+      &lt;/model&gt;
+      &lt;owner&gt;mailto:models@geo.admin.ch&lt;/owner&gt;
+    &lt;/DatasetIdx16.DataIndex.BasketMetadata&gt;
+  &lt;/baskets&gt;
+&lt;/DatasetIdx16.DataIndex.DatasetMetadata&gt;
+</code></pre>
+<h2 id="multiple-models-and-their-toppings">Multiple Models and their Toppings</h2>
+<p>Currently, a list of "LegendeEintrag_PlanGewaesserschutz_V1_1;KbS_LV95_V1_4;KbS_Basis_V1_4" lists the <em>metaconfiguration files</em> for all these models.
+<img alt="multimodels" src="../../../assets/usabilityhub_multimodels.png" />
+But then only one can be selected. If you want to select multiple <em>metaconfiguration files</em>, you have to import the models one after the other.</p>
+<h3 id="best-practice">Best Practice</h3>
+<p>It is best to make a <em>metaconfiguration file</em> that applies to the import of all models you usually choose. And to make the whole thing even more convenient, you can also configure the additional model in the <em>metaconfiguration file</em>.
+If a <em>metaconfiguration file</em> is valid for the import of both models "KbS_LV95_V1_4;KbS_Basis_V1_4", you can also configure both models in it:</p>
+<pre><code class="language-ini">[ch.ehi.ili2db]
+models = KbS_Basis_V1_4;KbS_Basis_V1_4
+</code></pre>
+<p>Thus the <em>Metaconfigurations</em> is found by both model names and when reading in "KbS_LV95_V1_4;KbS_Basis_V1_4" is loaded into the input mask of the Model Baker.</p>
+<h2 id="using-a-local-repository">Using a local repository</h2>
+<p>It can be useful for testing purposes to be able to use a local repository. This is configured as a <a href="../../../user_guide/plugin_configuration/#custom-model-directories">custom model directory</a>. <code>ilidata.xml</code> and <code>ilimodels.xml</code> are searched and parsed in it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
