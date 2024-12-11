@@ -144,7 +144,11 @@ class BasketManagerDialog(QDialog, DIALOG_UI):
                 == QMessageBox.Yes
             ):
                 basket_config = self.baskets_panel.selected_basket_settings()
-                res, msg = self._do_delete_basket(basket_config)
+                ili2db_utils = Ili2DbUtils()
+                ili2db_utils.log_on_error.connect(self._log_on_delete_baskets_error)
+                res, msg = ili2db_utils.delete_baskets(
+                    basket_config["bid_value"], self.configuration
+                )
 
                 if res:
                     # After deletion, make sure canvas is refreshed
@@ -169,59 +173,5 @@ class BasketManagerDialog(QDialog, DIALOG_UI):
             layer.dataProvider().reloadData()
             layer_tree_view.refreshLayerSymbology(layer.id())
 
-    def _do_delete_basket(self, basket_config):
-        # Keep original values just in case we need to go back to them
-        original_dataset_id = basket_config["dataset_t_id"]
-        original_dataset_name = basket_config["datasetname"]
-
-        # Create temporary dataset
-        tmp_dataset_id, tmp_dataset_name = "", "_tmp_dataset_tmp_"
-        res, msg = self.db_connector.create_dataset(tmp_dataset_name)
-        for _dataset in self.db_connector.get_datasets_info():
-            if _dataset["datasetname"] == tmp_dataset_name:
-                tmp_dataset_id = _dataset["t_id"]
-                break
-
-        if tmp_dataset_id == "":
-            return False, self.tr(
-                "Delete basket failed! Internal error modifying dataset/basket tables."
-            )
-
-        # Move basket to temporary dataset
-        basket_config["dataset_t_id"] = tmp_dataset_id
-        basket_config["datasetname"] = tmp_dataset_name
-
-        res, msg = self.db_connector.edit_basket(basket_config)
-        if not res:
-            return False, self.tr(
-                "Delete basket failed! Internal error modifying basket."
-            )
-
-        # Remove temporary dataset
-        ili2db_utils = Ili2DbUtils()
-        ili2db_utils.log_on_error.connect(self._log_on_delete_dataset_error)
-        res, msg = ili2db_utils.delete_dataset(tmp_dataset_name, self.configuration)
-
-        # If anything went bad, leave everything as the original status,
-        # i.e., move the basket to its original dataset
-        if not res:
-            msg = self.tr(
-                "Delete basket failed! Internal error deleting dataset/basket records."
-            )
-            basket_config["dataset_t_id"] = original_dataset_id
-            basket_config["datasetname"] = original_dataset_name
-            _res, _msg = self.db_connector.edit_basket(basket_config)
-            if not _res:
-                # We shouldn't reach this, the basket is in another dataset!
-                msg = self.tr("The basket (t_id: {}) couldn't be deleted!").format(
-                    basket_config["basket_t_id"]
-                )
-        else:
-            msg = self.tr("Basket (t_id: {}) successfully deleted!").format(
-                basket_config["basket_t_id"]
-            )
-
-        return res, msg
-
-    def _log_on_delete_dataset_error(self, log):
-        QgsMessageLog.logMessage(log, self.tr("Delete dataset from DB"), Qgis.Critical)
+    def _log_on_delete_baskets_error(self, log):
+        QgsMessageLog.logMessage(log, self.tr("Delete basket from DB"), Qgis.Critical)

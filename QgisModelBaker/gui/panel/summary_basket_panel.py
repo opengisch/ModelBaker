@@ -137,7 +137,7 @@ class BasketModel(QAbstractTableModel):
         return None
 
     def basket_config_by_index(self, index: QModelIndex) -> dict:
-        # Return the basket config for the row corrsponding to the given index.
+        # Return the basket config for the row corresponding to the given index.
         # This includes the whole basket configuration (t_id, dataset_id,
         # topic, etc.)
         return list(self.basket_settings.values())[index.row()]
