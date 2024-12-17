@@ -446,9 +446,6 @@ class QgisModelBakerPlugin(QObject):
         self.__validate_dock.setVisible(
             settings.value("QgisModelBaker/validate_dock/isVisible", False, type=bool)
         )
-        self.iface.layerTreeView().currentLayerChanged.connect(
-            self.__validate_dock.set_current_layer
-        )
 
     def remove_validate_dock(self):
         settings = QSettings()
@@ -461,9 +458,6 @@ class QgisModelBakerPlugin(QObject):
         )
         self.__validate_dock.setVisible(False)
         self.iface.removeDockWidget(self.__validate_dock)
-        self.iface.layerTreeView().currentLayerChanged.disconnect(
-            self.__validate_dock.set_current_layer
-        )
         del self.__validate_dock
 
     def get_generator(self):
